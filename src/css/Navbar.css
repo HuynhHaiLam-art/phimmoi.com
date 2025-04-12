@@ -1,23 +1,27 @@
-/* Navbar Styles */
 .navbar {
-  background: linear-gradient(180deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.7) 50%, transparent 100%);
-  padding: 1rem 4%;
   position: fixed;
-  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 70px;
+  background: transparent;
+  transition: all 0.3s ease;
   z-index: 1000;
-  transition: background-color 0.3s ease;
 }
 
 .navbar.scrolled {
-  background-color: #141414;
+  background: rgba(0, 0, 0, 0.95);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .navbar-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  max-width: 1920px;
+  max-width: 1400px;
   margin: 0 auto;
+  padding: 0 2rem;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .navbar-left {
@@ -27,92 +31,49 @@
 }
 
 .navbar-logo {
-  height: 35px;
+  height: 40px;
   width: auto;
 }
 
 .navbar-links {
   display: flex;
   gap: 1.5rem;
+  align-items: center;
 }
 
 .navbar-links a {
-  color: #e5e5e5;
+  color: #fff;
   text-decoration: none;
-  font-size: 0.9rem;
-  font-weight: 500;
+  font-size: 0.95rem;
   transition: color 0.3s ease;
-  position: relative;
 }
 
 .navbar-links a:hover {
-  color: #ffffff;
+  color: #e50914;
 }
 
-.navbar-links a::after {
-  content: '';
-  position: absolute;
-  bottom: -5px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background-color: #e50914;
-  transition: width 0.3s ease;
+.favorite {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
-.navbar-links a:hover::after {
-  width: 100%;
+.favorite-icon {
+  color: #e50914;
 }
 
 .navbar-right {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
 }
 
-/* Search Bar Styles */
-.search-container {
-  position: relative;
-  display: flex;
-  align-items: center;
-}
-
-.search-input {
-  background-color: rgba(0, 0, 0, 0.75);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: white;
-  padding: 0.5rem 2.5rem 0.5rem 2.5rem;
-  border-radius: 4px;
-  width: 240px;
-  transition: all 0.3s ease;
-  font-size: 0.9rem;
-}
-
-.search-input:focus {
-  background-color: #141414;
-  border-color: white;
-  outline: none;
-  width: 300px;
-}
-
-.search-icon {
-  position: absolute;
-  left: 10px;
-  color: #999;
-  transition: color 0.3s ease;
-}
-
-.search-container:focus-within .search-icon {
-  color: white;
-}
-
-/* User Menu */
 .user-menu {
+  position: relative;
   display: flex;
   align-items: center;
   gap: 0.5rem;
   cursor: pointer;
-  padding: 0.25rem;
+  padding: 0.5rem;
   border-radius: 4px;
   transition: background-color 0.3s ease;
 }
@@ -124,53 +85,64 @@
 .user-avatar {
   width: 32px;
   height: 32px;
-  border-radius: 4px;
+  border-radius: 50%;
   object-fit: cover;
 }
 
+.username {
+  color: #fff;
+  font-size: 0.95rem;
+}
+
 .dropdown-arrow {
-  color: white;
   transition: transform 0.3s ease;
 }
 
-.user-menu:hover .dropdown-arrow {
+.dropdown-arrow.rotated {
   transform: rotate(180deg);
 }
 
-/* Responsive Design */
-@media (max-width: 1024px) {
-  .search-input {
-    width: 180px;
-  }
-  
-  .search-input:focus {
-    width: 220px;
-  }
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: #1a1a1a;
+  border-radius: 4px;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-@media (max-width: 768px) {
-  .navbar-links {
-    display: none;
-  }
-  
-  .search-input {
-    width: 140px;
-  }
-  
-  .search-input:focus {
-    width: 180px;
-  }
-}.navbar-links a.favorite {
-  display: flex;
-  align-items: center;
-  gap: 5px;
+.dropdown-item {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: #fff;
+  text-decoration: none;
+  white-space: nowrap;
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-.favorite-icon {
-  color: #e50914;
-  transition: transform 0.3s ease;
+.dropdown-item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
-.navbar-links a.favorite:hover .favorite-icon {
-  transform: scale(1.2);
+.login-button {
+  padding: 0.5rem 1rem;
+  background: #e50914;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: background-color 0.3s ease;
+}
+
+.login-button:hover {
+  background: #b20710;
 }

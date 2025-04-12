@@ -1,8 +1,66 @@
+.app {
+  min-height: 100vh;
+  background-color: #141414;
+  color: white;
+}
+
 .main-content {
-  flex: 1;
-  padding: 2rem;
-  box-sizing: border-box;
-  width: 100%;
+  padding-top: 70px; /* Height of navbar */
+  min-height: calc(100vh - 70px);
+  max-width: 1400px;
+  margin: 0 auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+/* Loading spinner */
+.loading {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+}
+
+.loading::after {
+  content: "";
+  width: 32px;
+  height: 32px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #e50914;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Error message */
+.error-message {
+  color: #e50914;
+  text-align: center;
+  padding: 2rem;
+  background: rgba(229, 9, 20, 0.1);
+  border-radius: 4px;
+  margin: 2rem 0;
+}
+
+/* Scrollbar customization */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #e50914;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #b20710;
 }
