@@ -2,57 +2,115 @@
   padding: 2rem 0;
   width: 100%;
   box-sizing: border-box;
+  background: linear-gradient(to bottom, #141414, #1a1a1a);
+  min-height: 100vh;
 }
 
 .search-form {
-  max-width: 600px;
-  margin: 0 auto 2rem;
+  max-width: 800px;
+  margin: 2rem auto;
   display: flex;
   gap: 1rem;
-  padding: 0 1rem;
+  padding: 2rem;
   box-sizing: border-box;
+  position: relative;
 }
 
 .search-input {
   flex: 1;
-  padding: 0.75rem 1rem;
-  border: none;
-  border-radius: 4px;
-  background-color: #333;
+  padding: 1rem 1.5rem 1rem 3.5rem; /* Tăng padding bên trái để chứa icon */
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 30px;
+  background-color: rgba(255, 255, 255, 0.1);
   color: white;
-  font-size: 1rem;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+/* Icon tìm kiếm */
+.search-form::before {
+  content: '';
+  position: absolute;
+  left: 3rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='white'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z'%3E%3C/path%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.7;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
 }
 
 .search-input:focus {
   outline: none;
-  box-shadow: 0 0 0 2px #666;
+  background-color: rgba(255, 255, 255, 0.15);
+  border-color: rgba(229, 9, 20, 0.8);
+  box-shadow: 0 0 0 1px rgba(229, 9, 20, 0.2),
+              0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.search-input:focus + .search-form::before {
+  opacity: 1;
+}
+
+.search-input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .search-button {
-  padding: 0.75rem 1.5rem;
+  padding: 1rem 2rem;
   background-color: #e50914;
   color: white;
-  border-radius: 4px;
-  font-weight: 500;
-  transition: background-color 0.2s;
+  border: none;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
   white-space: nowrap;
+  cursor: pointer;
 }
 
 .search-button:hover {
   background-color: #f40612;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(229, 9, 20, 0.4);
 }
 
+.search-button:active {
+  transform: translateY(0);
+}
 
-@media (max-width: 639px) {
-  .home {
-    padding: 1rem 0;
-  }
-
+/* Responsive Design */
+@media (max-width: 768px) {
   .search-form {
-    margin-bottom: 1rem;
+    flex-direction: column;
+    padding: 1rem;
+    margin: 1rem auto;
+  }
+
+  .search-input {
+    width: 100%;
+    font-size: 1rem;
+    padding: 0.875rem 1.25rem 0.875rem 3rem;
+  }
+
+  .search-form::before {
+    left: 2rem;
+  }
+
+  .search-button {
+    width: 100%;
+    padding: 0.875rem;
   }
 }
 
+/* Movie Grid styling remains the same */
 .movies-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));

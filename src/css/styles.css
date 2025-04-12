@@ -1,0 +1,201 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #141414;
+    color: #ffffff;
+  }
+  
+  /* Navigation */
+  .navbar {
+    background: linear-gradient(180deg, rgba(0,0,0,0.7) 10%, transparent);
+    padding: 1rem 4%;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+  }
+  
+  /* Movie Cards */
+  .movie-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+    padding: 2rem 4%;
+  }
+  
+  .movie-card {
+    position: relative;
+    transition: transform 0.3s ease;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  
+  .movie-card:hover {
+    transform: scale(1.05);
+    z-index: 2;
+  }
+  
+  .movie-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+  }
+  
+  .movie-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem;
+    background: linear-gradient(transparent, rgba(0,0,0,0.9));
+  }
+  
+  .movie-info h3 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Hero Section */
+  .hero {
+    height: 80vh;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    margin-bottom: 2rem;
+  }
+  
+  .hero-content {
+    position: absolute;
+    bottom: 20%;
+    left: 4%;
+    max-width: 600px;
+  }
+  
+  .hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+  }
+  
+  .hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+  }
+  
+  /* Buttons */
+  .btn {
+    background-color: #e50914;
+    color: white;
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .btn:hover {
+    background-color: #f40612;
+  }
+  
+  /* Movie Sections */
+  .section-title {
+    font-size: 1.5rem;
+    margin: 2rem 4% 1rem;
+    font-weight: bold;
+  }
+  
+  /* Slider */
+  .movie-slider {
+    padding: 0 4%;
+    position: relative;
+  }
+  
+  .slider-content {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    gap: 1rem;
+    padding: 1rem 0;
+  }
+  
+  .slider-content::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .hero-content h1 {
+      font-size: 2rem;
+    }
+    
+    .hero-content p {
+      font-size: 1rem;
+    }
+    
+    .movie-grid {
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+  }
+  
+  /* Loading Animation */
+  .loading {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .loading::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 3px solid #e50914;
+    border-color: #e50914 transparent #e50914 transparent;
+    animation: loading 1.2s linear infinite;
+  }
+  
+  @keyframes loading {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  /* Hover Effects */
+  .movie-card .play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    background-color: rgba(255, 255, 255, 0.2);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .movie-card:hover .play-button {
+    opacity: 1;
+  }
+  
+  /* Rating Badge */
+  .rating {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 4px 8px;
+    border-radius: 3px;
+    font-size: 0.8rem;
+  }
