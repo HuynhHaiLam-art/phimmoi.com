@@ -9,6 +9,7 @@ import PhimLe from "./pages/PhimLe.jsx";
 import PhimMoi from "./pages/PhimMoi.jsx";
 import TheLoai from "./pages/TheLoai.jsx";
 import PhimTheoTheLoai from "./pages/PhimTheoTheLoai.jsx";
+import MovieDetail from "./pages/MovieDetail.jsx"; // Thêm import
 import { useAuth } from './contexts/AuthContext.jsx';
 
 // Protected Route Component
@@ -39,6 +40,10 @@ function AppRoutes() {
           </ProtectedRoute>
         } 
       />
+      {/* Thêm route cho trang chi tiết phim */}
+      <Route path="/movie/:id" element={<MovieDetail />} />
+      {/* Route dự phòng cho URL không hợp lệ */}
+      <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );
 }
