@@ -12,22 +12,60 @@
   margin: 0 auto;
   padding: 20px;
   position: relative;
-  z-index: 1; /* Đảm bảo main content nằm dưới navbar */
+  z-index: 1;
 }
 
-/* Thêm style cho navbar để đảm bảo nó luôn ở trên cùng */
-.navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000; /* z-index cao hơn các phần tử khác */
-  background-color: #141414;
-  height: 70px; /* Chiều cao cố định cho navbar */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  color: white;
 }
 
-/* Media Queries */
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(255, 255, 255, 0.1);
+  border-left-color: #e50914;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 15px;
+}
+
+.error-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  padding: 20px;
+  text-align: center;
+  color: white;
+}
+
+.error-container button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #e50914;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.error-container button:hover {
+  background-color: #b2070e;
+}
+
+@keyframes spin {
+  to {
+      transform: rotate(360deg);
+  }
+}
+
 @media (max-width: 1200px) {
   .main-content {
       padding: 20px 15px;
@@ -38,18 +76,10 @@
   .main-content {
       padding: 15px 10px;
   }
-
-  .home {
-      margin-top: 60px; /* Giảm margin-top trên màn hình nhỏ */
-  }
 }
 
 @media (max-width: 480px) {
   .main-content {
       padding: 10px;
-  }
-
-  .home {
-      margin-top: 50px; /* Giảm margin-top hơn nữa trên màn hình mobile */
   }
 }
